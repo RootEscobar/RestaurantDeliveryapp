@@ -1,0 +1,2 @@
+AUTHY_API_KEY = "325766a2074f2402bf2e19eb7cc35430"
+SECRET_KEY = "RestaurantApiKey"
