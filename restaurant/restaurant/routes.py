@@ -17,10 +17,10 @@ def home_page():
 def menu_page():
     add_form = AddForm()
     if request.method == 'POST':
-        selected_item = request.form.get('selected_item') #get the selected item from the menu page
+        selected_item = request.form.get('selected_item') #Obtener el elemento seleccionado de la página del menú
         s_item_object = Item.query.filter_by(name = selected_item).first()
         if s_item_object:
-            s_item_object.assign_ownership(current_user) #assign ownership of the ordered item to the user
+            s_item_object.assign_ownership(current_user) #Asignar la propiedad del artículo pedido al usuario.
         
         return redirect(url_for('menu_page'))
     
@@ -33,7 +33,7 @@ def menu_page():
 def cart_page():
     order_form = OrderForm()
     if request.method == 'POST':
-        ordered_item = request.form.get('ordered_item') #get the ordered item(s) from the cart page
+        ordered_item = request.form.get('ordered_item') #Obtiene los artículos pedidos desde la página del carrito
         o_item_object = Item.query.filter_by(name = ordered_item).first()
         order_info = Order(name = current_user.fullname,
                            address = current_user.address,
@@ -43,11 +43,11 @@ def cart_page():
         db.session.commit()
 
         o_item_object.remove_ownership(current_user)    
-        #return congrats page on successfull order
+        #Regresar a la página de felicitaciones por el pedido realizado con éxito
         return redirect(url_for('congrats_page'))
     
     if request.method == 'GET':
-        selected_items = Item.query.filter_by(orderer = current_user.id)#get items which user has added to the cart
+        selected_items = Item.query.filter_by(orderer = current_user.id)#Obtener elementos que el usuario ha añadido al carrito
         return render_template('cart.html', order_form = order_form, selected_items = selected_items)
 
 #CONGRATULATIONS PAGE
@@ -60,12 +60,12 @@ def congrats_page():
 @login_required
 def table_page():
     reserve_form = ReserveForm()
-    #to get rid of 'confirm form resubmission' on refresh
+    #Para deshacerse de 'confirmar reenvío de formulario' al actualizar
     if request.method == 'POST':
         reserved_table = request.form.get('reserved_table')
         r_table_object = Table.query.filter_by(table = reserved_table).first()
         if r_table_object:
-            r_table_object.assign_ownership(current_user) #set the owner of the table to the current logged in user
+            r_table_object.assign_ownership(current_user) #Establezca el propietario de la tabla en el usuario que ha iniciado sesión actualmente
             # flash(f"Your table {{ r_table_object.table }} has been reserved successfully!")
 
         return redirect(url_for('table_page'))

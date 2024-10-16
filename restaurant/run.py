@@ -1,6 +1,6 @@
 from restaurant.routes import app
 
-#checks if main.py has executed directly and not imported
+#Comprueba si main.py se ha ejecutado directamente y no se ha importado.
 if __name__ == '__main__':
     app.run(debug = True)
 

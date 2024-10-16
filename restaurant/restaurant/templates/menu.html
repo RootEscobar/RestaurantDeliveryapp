@@ -29,14 +29,14 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="{{ url_for('home_page' )}}" class="nav__link active-link">Home</a></li>
-                    <li class="nav__item"><a href="index.html#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="index.html#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="{{ url_for('home_page' )}}" class="nav__link active-link">Inicio</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link">Sobre nosotros</a></li>
+                    <li class="nav__item"><a href="index.html#services" class="nav__link">Servicios</a></li>
                     {% if current_user.is_authenticated %}
-                    <li class="nav__item"><a href="{{ url_for('logout') }}" class="nav__link">Log Out</a></li>
+                    <li class="nav__item"><a href="{{ url_for('logout') }}" class="nav__link">Cerrar sesion</a></li>
                     {% else %}
-                    <li class="nav__item"><a href="{{ url_for('login_page') }}" class="nav__link">Log in</a></li>
-                    <li class="nav__item"><a href="{{ url_for('login_page') }}" class="nav__link">Register</a></li>
+                    <li class="nav__item"><a href="{{ url_for('login_page') }}" class="nav__link">Iniciar sesion</a></li>
+                    <li class="nav__item"><a href="{{ url_for('login_page') }}" class="nav__link">Registrarse</a></li>
                     {% endif %}
                     <!-- <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact us</a></li> -->
                     <li class="nav__item"><a href="{{ url_for('cart_page') }}" class="cart__button"><i class='bx bx-cart-alt'></i></a></li>
@@ -86,7 +86,7 @@
             <h3 class="menu__name">{{ item.name }}</h3>
             <!-- <span class="menu__detail">Delicious dish</span> -->
             <span class = "menu_detail"> {{ item.description }} </span>
-            <span class="menu__price">₹{{ item.price }}</span>
+            <span class="menu__price">${{ item.price }}</span>
             <!-- <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a> -->
             <form method = 'POST'>
                 {{ add_form.hidden_tag() }}
@@ -105,46 +105,47 @@
 <footer class="footer section bd-container">
 <div class="footer__container bd-grid">
     <div class="footer__content">
-        <a href="#" class="footer__logo">Slver Leaf</a>
+        <a href="{{ url_for('menu_page') }}" class="footer__logo">Slver Leaf</a>
         <span class="footer__description">Restaurant</span>
         <div>
-            <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
-            <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
-            <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+            <a href="https://www.facebook.com/?locale=es_LA" class="footer__social"><i class='bx bxl-facebook'></i></a>
+            <a href="https://www.instagram.com/?hl=es" class="footer__social"><i class='bx bxl-instagram'></i></a>
+            <a href="https://x.com/?lang=es" class="footer__social"><i class='bx bxl-twitter'></i></a>
         </div>
     </div>
 
     <div class="footer__content">
-        <h3 class="footer__title">Services</h3>
+        <h3 class="footer__title">Servicios</h3>
         <ul>
-            <li><a href="menu.html" class="footer__link">Order Food</a></li>
-            <li><a href="table.html" class="footer__link">Table Reservation</a></li>
-            <li><a href="#" class="footer__link">Delivery</a></li>
+            <li><a href="{{ url_for('menu_page') }}" class="footer__link">Ordernar Comida</a></li>
+            <li><a href="{{ url_for('table_page') }}" class="footer__link">Reservacion de Mesas</a></li>
+            <li><a href="{{ url_for('track_page') }}" class="footer__link">A Domicilio</a></li>
         </ul>
     </div>
 
     <div class="footer__content">
-        <h3 class="footer__title">Information</h3>
+        <h3 class="footer__title">Informacion</h3>
         <ul>
-            <li><a href="#" class="footer__link">Event</a></li>
-            <li><a href="#" class="footer__link">Contact us</a></li>
-            <li><a href="#" class="footer__link">Privacy policy</a></li>
-            <li><a href="#" class="footer__link">Terms of services</a></li>
+            <li><a href="#" class="footer__link">Eventos</a></li>
+            <li><a href="https://wa.link/ct2vt4" class="footer__link">Contactanos</a></li>
+            <li><a href="#" class="footer__link">Politicas de Privacidad</a></li>
+            <li><a href="#" class="footer__link">Terminos del Servicio</a></li>
         </ul>
     </div>
 
     <div class="footer__content">
-        <h3 class="footer__title">Address</h3>
+        <h3 class="footer__title">DIreccion</h3>
         <ul>
-            <li>Somewhere</li>
-            <li>Universe</li>
-            <li>999 - 888 - 777</li>
-            <li>silverleaf@gmail.com</li>
+              <li>Edificio fenix</li>
+              <li>2a Avenida Sur</li>
+              <li>San Salvador</li>
+              <li>7789-1244</li>
+              <li>silverleaf@gmail.com</li>
         </ul>
     </div>
 </div>
 
-<p class="footer__copy">&#169; 2021 Group-37. All right reserved</p>
+<p class="footer__copy">&#169; 2024. All right reserved</p>
 </footer>
 <!--========== FOOTER ENDS HERE ==========-->
 

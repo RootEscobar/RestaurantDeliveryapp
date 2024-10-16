@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Delivery tracking</title>
+    <title>Seguimiento de Pedido</title>
 
     <!--========== BOX ICONS ==========-->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -22,16 +22,14 @@
   <!--========== HEADER ==========-->
   <header class="l-header" id="header">
       <nav class="nav bd-container">
-          <a href="#" class="nav__logo"><h1>Silver Leaf.</h1></a>
+          <a href="{{ url_for('home_page') }}" class="nav__logo"><h1>Silver Leaf.</h1></a>
 
           <div class="nav__menu" id="nav-menu">
               <ul class="nav__list">
-                  <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                  <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                  <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
-                  <li class="nav__item"><a href="login.html" class="nav__link">Log in</a></li>
-                  <li class="nav__item"><a href="login.html" class="nav__link">Register</a></li>
-                  <li class="nav__item"><a href="#contact" class="nav__link">Contact us</a></li>
+                  <li class="nav__item"><a href="{{ url_for('home_page') }}" class="nav__link active-link">Inicio</a></li>
+                  <li class="nav__item"><a href="#about" class="nav__link">Sobre Nosotros</a></li>
+                  <li class="nav__item"><a href="#services" class="nav__link">Servicios</a></li>
+                  <li class="nav__item"><a href="https://wa.link/ct2vt4" class="nav__link">Contactanos</a></li>
 
                   <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
               </ul>
@@ -50,7 +48,7 @@
     </section>
 
     <section class="contact section orderinfo-container" id="contact">
-    <p><h1>Your order is on the way!</h1></p>
+    <p><h1>¡Tu pedido está en camino!</h1></p>
     </section>
 
     <!-- <script>
@@ -92,54 +90,54 @@
     
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly&channel=2"
-      async>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6ugZYXlVm0frolGF7HASfkeCHUdmobRE&callback=initMap&v=weekly&channel=2" async>
     </script>
 
     <!--========== FOOTER ==========-->
     <footer class="footer section bd-container">
         <div class="footer__container bd-grid">
             <div class="footer__content">
-                <a href="#" class="footer__logo">Silver Leaf</a>
+                <a href="{{ url_for('home_page') }}" class="footer__logo">Silver Leaf</a>
                 <span class="footer__description">Restaurant</span>
                 <div>
-                    <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://www.facebook.com/?locale=es_LA" class="footer__social"><i class='bx bxl-facebook'></i></a>
+                    <a href="https://www.instagram.com/?hl=es" class="footer__social"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://x.com/?lang=es" class="footer__social"><i class='bx bxl-twitter'></i></a>
                 </div>
             </div>
 
             <div class="footer__content">
                 <h3 class="footer__title">Services</h3>
                 <ul>
-                    <li><a href="table.html" class="footer__link">Table Reservation</a></li>
-                    <li><a href="menu.html" class="footer__link">Order Food</a></li>
-                    <li><a href="#" class="footer__link">Delivery Tracking</a></li>
+                    <li><a href="{{ url_for('table_page') }}" class="footer__link">Reservar Mesa</a></li>
+                    <li><a href="{{ url_for('menu_page') }}" class="footer__link">Ordenar comida</a></li>
+                    <li><a href="#" class="footer__link">Suigue tu Orden</a></li>
                 </ul>
             </div>
 
             <div class="footer__content">
-                <h3 class="footer__title">Information</h3>
+                <h3 class="footer__title">Informacion</h3>
                 <ul>
-                    <li><a href="#" class="footer__link">Event</a></li>
-                    <li><a href="#" class="footer__link">Contact us</a></li>
-                    <li><a href="#" class="footer__link">Privacy policy</a></li>
-                    <li><a href="#" class="footer__link">Terms of services</a></li>
+                    <li><a href="#" class="footer__link">Eventos</a></li>
+                    <li><a href="https://wa.link/ct2vt4" class="footer__link">Contactenos</a></li>
+                    <li><a href="#" class="footer__link">Politicas de Privacidad</a></li>
+                    <li><a href="#" class="footer__link">Terminos y servicios</a></li>
                 </ul>
             </div>
 
             <div class="footer__content">
-                <h3 class="footer__title">Address</h3>
+                <h3 class="footer__title">Direccion</h3>
                 <ul>
-                    <li>Park Street, Taltala</li>
-                    <li>Kolkata, West Bengal</li>
-                    <li>031-4281-7093</li>
-                    <li>silverleaf@gmail.com</li>
+                  <li>Edificio fenix</li>
+                  <li>2a Avenida Sur</li>
+                  <li>San Salvador</li>
+                  <li>7789-1244</li>
+                  <li>silverleaf@gmail.com</li>
                 </ul>
             </div>
         </div>
 
-        <p class="footer__copy">&#169; 2021 Group-37. All rights reserved</p>
+        <p class="footer__copy">&#169; 2024. All rights reserved</p>
         </footer>
         <!--========== FOOTER ENDS ==========-->
 

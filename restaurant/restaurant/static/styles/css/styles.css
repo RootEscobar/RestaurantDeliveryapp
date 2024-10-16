@@ -195,7 +195,7 @@ img{
 .nav__logo{
   color: #696969;
   font-family: 'Dancing Script';
-  font-size: var(--h1-font-size);
+  font-size: var(-40px);
   /*line-height: 160px;*/
   font-weight: normal;
   /*margin-bottom: 0px;*/
@@ -272,7 +272,7 @@ img{
 }
 
 .home__title{
-  font-size: var(--biggest-font-size);
+  font-size: var(30px);
   color: var(--first-color);
   margin-bottom: var(--mb-1);
 }

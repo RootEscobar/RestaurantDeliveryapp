@@ -10,7 +10,7 @@
    <div class="CartContainer">
    	   <div class="Header">
    	   	<h3 class="Heading">Cart</h3>
-   	   	<a href="{{ url_for('menu_page') }}" class = "back"><h5 class="Action">Back to Menu <i class='bx bxs-food-menu'></i></h5></a>
+   	   	<a href="{{ url_for('menu_page') }}" class = "back"><h5 class="Action">Regresar al menu<i class='bx bxs-food-menu'></i></h5></a>
    	   </div>
 
 	   {% for selected_item in selected_items %}
@@ -21,8 +21,8 @@
    	   	  </div>
 
    	   	  <div class="about">
-            <h1 class="title"> {{ selected_item.name }}</h1>
-   	   	  	<h3 class="subtitle"> {{ selected_item.description }} </h3>
+            <h1 class="title"></h1>
+   	   	  	<h3 class="subtitle"></h3>
    	   	  </div>
 
    	   	  <div class="counter">
@@ -32,7 +32,7 @@
    	   	  </div>
 
    	   	  <div class="prices">
-   	   	  	<div class="amount">₹ {{ selected_item.price }}</div>
+   	   	  	<div class="amount">$ {{ selected_item.price }}</div>
    	   	  	<div class="remove"><i class='bx bxs-trash-alt'></i></div> 
    	   	  </div>
         
@@ -46,7 +46,7 @@
 					<div class="Subtotal">Sub-Total</div>
 					<div class="items"> X items</div>
 				</div>
-				<div class="total-amount">₹ {{ selected_items | sum(attribute='price') }}</div>
+				<div class="total-amount">$ {{ selected_items | sum(attribute='price') }}</div>
 			</div>
 			<form method = 'POST'>
 				<!-- Note: This part seems useless -->

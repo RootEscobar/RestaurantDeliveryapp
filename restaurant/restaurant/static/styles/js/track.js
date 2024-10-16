@@ -2,7 +2,7 @@ function initMap() {
   const directionsRenderer = new google.maps.DirectionsRenderer();
   const directionsService = new google.maps.DirectionsService();
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 14,
+    zoom: 34,
     center: { lat: 18.030905, lng: 79.542875 },
   });
 
@@ -18,8 +18,8 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
   directionsService
     .route({
-      origin: { lat: 18.030905, lng: 79.542875 },
-      destination: { lat: 17.99231667131914, lng: 79.55652413925598 },
+      origin: { lat: 13.6981, lng: -89.1904 },  //13°39'43.0"N 89°15'34.1"W
+      destination: { lat: 13.661944, lng: -89.259472 },
       travelMode: google.maps.TravelMode[selectedMode],
     })
     .then((response) => {

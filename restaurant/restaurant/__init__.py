@@ -4,8 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/Admin/venv/restaurant/restaurant/tables.db'
+app = Flask(__name__)          #SQLALCHEMY_DATABASE_URI = 'mssql://DARB\SQLEXPRESS:password@localhost/db_rest'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/alega/Documents/GitHub/RestaurantDeliveryapp/restaurant/restaurant/tables.db'
 app.config['SECRET_KEY'] = '325766a2074f2402bf2e19eb7cc35430'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
