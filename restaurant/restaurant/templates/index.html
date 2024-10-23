@@ -22,11 +22,11 @@
         <!--========== HEADER ==========-->
         <header class="l-header" id="header">
             <nav class="nav bd-container">
-                <a href="{{ url_for('menu_page') }}" class="nav__logo"><h1>Silver Leaf.</h1></a>
+                <a href="{{ url_for('home_page') }}" class="nav__logo"><h1>Silver Leaf.</h1></a>
 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="{{ url_for('menu_page') }}" class="nav__link active-link">Inicio</a></li>
+                        <li class="nav__item"><a href="{{ url_for('home_page') }}" class="nav__link active-link">Inicio</a></li>
                         <li class="nav__item"><a href="#about" class="nav__link">Sobre Nosotros</a></li>
                         <li class="nav__item"><a href="#services" class="nav__link">Servicios</a></li>
                         <!-- <li class="nav__item"><a href="{{ url_for('login_page') }}" class="nav__link">Log in</a></li>
@@ -378,7 +378,7 @@
                     </div>
 
                     <div class="contact__button">
-                        <a href="#" class="button">Contactenos Ahora</a>
+                        <a href="https://wa.link/ct2vt4" class="button">Contactenos Ahora</a>
                     </div>
                 </div>
             </section>
@@ -410,7 +410,7 @@
                     <h3 class="footer__title">Informacion</h3>
                     <ul>
                         <li><a href="#" class="footer__link">Evenost</a></li>
-                        <li><a href="#" class="footer__link">Contactenos</a></li>
+                        <li><a href="https://wa.link/ct2vt4" class="footer__link">Contactenos</a></li>
                         <li><a href="#" class="footer__link">Politicas de privacidad</a></li>
                         <li><a href="#" class="footer__link">Terminos y condiciones</a></li>
                     </ul>
@@ -430,6 +430,33 @@
 
             <p class="footer__copy">&#169; 2024. All rights reserved</p>
         </footer>
+             
+
+         <!--BOT-->
+        <script>
+            window.addEventListener('mouseover', initLandbot, { once: true });
+            window.addEventListener('touchstart', initLandbot, { once: true });
+            var myLandbot;
+            function initLandbot() {
+              if (!myLandbot) {
+                var s = document.createElement('script');s.type = 'text/javascript';s.async = true;
+                s.addEventListener('load', function() {
+                  var myLandbot = new Landbot.Livechat({
+                    configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-2631188-WIZ23KV1NIMD4SEO/index.json',
+                  });
+                });
+                s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(s, x);
+              }
+            }
+            </script>
+
+             <!--Bot2-->
+             <!--<script src="https://app.chatgptbuilder.io/webchat/plugin.js?v=5"></script><script>ktt10.setup({id:"hwcCAiMYYN0RJbG308Ik",accountId:"1078203",color:"#36D6B5"})</script>
+                -->
+
+
         <!--========== FOOTER ENDS ==========-->
 
 
