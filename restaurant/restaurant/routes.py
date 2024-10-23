@@ -6,12 +6,12 @@ from restaurant import db
 from flask_login import login_user, logout_user, login_required, current_user
 
 @app.route('/')
-#HOME PAGE
+#PAGINA PRINCIPAL
 @app.route('/home')
 def home_page(): 
     return render_template('index.html')
 
-#MENU PAGE
+#PAGINA DEL MENU
 @app.route('/menu', methods = ['GET', 'POST'])
 @login_required
 def menu_page():
@@ -28,7 +28,7 @@ def menu_page():
         items = Item.query.all()
         return render_template('menu.html', items = items, add_form = add_form)
 
-#CART PAGE
+#PAGINA DEL MENU
 @app.route('/cart', methods = ['GET', 'POST'])
 def cart_page():
     order_form = OrderForm()
@@ -50,12 +50,12 @@ def cart_page():
         selected_items = Item.query.filter_by(orderer = current_user.id)#Obtener elementos que el usuario ha añadido al carrito
         return render_template('cart.html', order_form = order_form, selected_items = selected_items)
 
-#CONGRATULATIONS PAGE
+#PAGINA DE FELICITACIONES POR EL PEDIDO
 @app.route('/congrats')
 def congrats_page():
     return render_template('congrats.html')   
 
-#TABLE RESERVATION PAGE
+#PAGINA DE RESERVACION DE MESA
 @app.route('/table', methods = ['GET', 'POST'])
 @login_required
 def table_page():
@@ -74,22 +74,22 @@ def table_page():
         tables = Table.query.filter_by(reservee = None)
         return render_template('table.html', tables = tables, reserve_form = reserve_form)
 
-#LOGIN PAGE
+#PAGINA DE INICIO DE SESION
 @app.route('/login', methods = ['GET', 'POST'])
 def login_page():
     forml = LoginForm()
     form = RegisterForm()
     if forml.validate_on_submit():
-        attempted_user = User.query.filter_by(username = forml.username.data).first() #get username data entered from sign in form
-        if attempted_user and attempted_user.check_password_correction(attempted_password = forml.password.data): #to check if username & password entered is in user database
-            login_user(attempted_user) #checks if user is registered 
+        attempted_user = User.query.filter_by(username = forml.username.data).first() #Obtener los datos del nombre de usuario ingresados ​​desde el formulario de inicio de sesión
+        if attempted_user and attempted_user.check_password_correction(attempted_password = forml.password.data): #Para comprobar si el nombre de usuario y la contraseña ingresados ​​están en la base de datos de usuarios
+            login_user(attempted_user) #Comprueba si el usuario está registrado
             # flash(f'Signed in successfully as: {attempted_user.username}', category = 'success')
             return redirect(url_for('home_page'))
         else:
-            flash('Username or password is incorrect! Please Try Again', category = 'danger') #displayed in case user is not registered
+            flash('Username or password is incorrect! Please Try Again', category = 'danger') #Aparece en caso de que el usuario no esté registrado.
     return render_template('login.html', forml = forml, form = form)
 
-#FORGOT PASSWORD
+#PERDIDA DE CONTRASEÑA
 @app.route('/forgot', methods = ['GET', 'POST'])
 def forgot():
     return render_template("forgot.html")
@@ -98,19 +98,19 @@ def return_login():
     return render_template("login.html")
 
 
-#LOGOUT FUNCTIONALITY
+#CERRAR SESIÓN
 @app.route('/logout')
 def logout():
-    logout_user() #used to log out
+    logout_user() #utilizado para cerrar sesión
     flash('You have been logged out!', category = 'info')
     return redirect(url_for("home_page")) 
 
-#REGISTER PAGE
+#PAGINA DE RESGRITRARSE
 @app.route('/register', methods = ['GET', 'POST'])
 def register_page():
     forml = LoginForm()
     form = RegisterForm() 
-    #checks if form is valid
+    #Comprueba si el formulario es válido
     if form.validate_on_submit():
          user_to_create = User(username = form.username.data,
                                fullname = form.fullname.data,
@@ -119,23 +119,23 @@ def register_page():
                                password = form.password1.data,)
          db.session.add(user_to_create)
          db.session.commit()
-         login_user(user_to_create) #login the user on registration 
+         login_user(user_to_create) #Inicie sesión como usuario en el registro
          return redirect(url_for('verify'))
     # else:
     #     flash("Username already exists!")
 
-    if form.errors != {}: #if there are not errors from the validations
+    if form.errors != {}: #Si no hay errores de las validaciones
         for err_msg in form.errors.values():
             flash(f'There was an error with creating a user: {err_msg}')
     return render_template('login.html', form = form, forml = forml)
 
-#ORDER ID PAGE
+#PAGINA DE ID DE PEDIDO
 @app.route('/order_id', methods = ['GET', 'POST'])
 def track_page():
     orderid = OrderIDForm()
     # if request.method == "POST":
     if orderid.validate_on_submit:
-        #check to see if order id matches
+        #Verifique si el ID del pedido coincide
         valid_orderid = Order.query.filter_by( order_id = orderid.orderid.data ).first()
         if valid_orderid:
             return redirect(url_for('delivery'))
@@ -144,12 +144,12 @@ def track_page():
 
     return render_template('order-id.html', orderid = orderid)
 
-#DELIVERY TRACKING PAGE
+#PÁGINA DE SEGUIMIENTO DE ENTREGA
 @app.route('/deliverytracking')
 def delivery():
     return render_template('track.html')
 
-#OTP VERIFICATION
+#VERIFICACION OTP
 @app.route("/verify", methods=["GET", "POST"])
 def verify():
     country_code = "+503"
@@ -161,7 +161,7 @@ def verify():
     api.phones.verification_start(phone_number, country_code, via=method)
 
     if request.method == "POST":
-            token = request.form.get("token") #OTP user entered
+            token = request.form.get("token") #Usuario OTP ingresado
 
             phone_number = session.get("phone_number")
             country_code = session.get("country_code")
@@ -177,6 +177,6 @@ def verify():
                 # return Response("<center><h1>Wrong OTP!</h1><center>")
                 flash('Your OTP is incorrect! Please Try Again', category = 'danger')
 
-    return render_template("otp.html")
+    return render_template("login.html")
 
 

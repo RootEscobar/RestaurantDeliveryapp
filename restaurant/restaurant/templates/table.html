@@ -24,7 +24,7 @@
 <!--========== HEADER ==========-->
 <header class="l-header" id="header">
     <nav class="nav bd-container">
-        <a href="#" class="nav__logo"><h1>Silver Leaf.</h1></a>
+        <a href="{{ url_for('home_page') }}" class="nav__logo"><h1>Silver Leaf.</h1></a>
 
         <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
@@ -39,7 +39,7 @@
                 <li class="nav__item"><a href="{{ url_for('login_page') }}" class="nav__link">Iniciar Sesion</a></li>
                 <li class="nav__item"><a href="{{ url_for('login_page') }}" class="nav__link">Registrarse</a></li>
                 {% endif %}
-                <li class="nav__item"><a href="index.html#contact" class="nav__link">Contactenos</a></li>
+                <li class="nav__item"><a href="https://wa.link/ct2vt4" class="nav__link">Contactenos</a></li>
 
                 <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
             </ul>
@@ -94,21 +94,21 @@
 <footer class="footer section bd-container">
   <div class="footer__container bd-grid">
       <div class="footer__content">
-          <a href="#" class="footer__logo">Slver Leaf</a>
+          <a href="{{ url_for('home_page') }}" class="footer__logo">Slver Leaf</a>
           <span class="footer__description">Restaurant</span>
           <div>
-              <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
-              <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
-              <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+              <a href="https://www.facebook.com/?locale=es_LA" class="footer__social"><i class='bx bxl-facebook'></i></a>
+              <a href="https://www.instagram.com/?hl=es" class="footer__social"><i class='bx bxl-instagram'></i></a>
+              <a href="https://x.com/?lang=es" class="footer__social"><i class='bx bxl-twitter'></i></a>
           </div>
       </div>
 
       <div class="footer__content">
           <h3 class="footer__title">Services</h3>
           <ul>
-              <li><a href="menu.html" class="footer__link">Order Food</a></li>
-              <li><a href="#" class="footer__link">Table Reservation</a></li>
-              <li><a href="#" class="footer__link">Delivery</a></li>
+              <li><a href="{{ url_for('menu_page') }}" class="footer__link">Ordenar comida</a></li>
+              <li><a href="{{ url_for('table_page') }}" class="footer__link">Reseervacion de mesa</a></li>
+              <li><a href="{{ url_for('track_page') }}" class="footer__link">Admicilio</a></li>
           </ul>
       </div>
 
@@ -133,6 +133,25 @@
           </ul>
       </div>
   </div>
+
+  <script>
+    window.addEventListener('mouseover', initLandbot, { once: true });
+    window.addEventListener('touchstart', initLandbot, { once: true });
+    var myLandbot;
+    function initLandbot() {
+      if (!myLandbot) {
+        var s = document.createElement('script');s.type = 'text/javascript';s.async = true;
+        s.addEventListener('load', function() {
+          var myLandbot = new Landbot.Livechat({
+            configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-2631188-WIZ23KV1NIMD4SEO/index.json',
+          });
+        });
+        s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
+    }
+    </script>
 
   <p class="footer__copy">&#169; 2024. All right reserved</p>
   </footer>

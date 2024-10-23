@@ -15,7 +15,7 @@
   --body-color: #FBFEFD;
   --container-color: #FFFFFF;
 
-  /*========== Font and typography ==========*/
+  /*========== Fuentes y tipografias ==========*/
   --body-font: 'Poppins', sans-serif;
   --biggest-font-size: 2.25rem;
   --h1-font-size: 1.5rem;
@@ -114,10 +114,6 @@ img{
   height: auto;
 }
 
-/*========== CLASS CSS ==========*/
-.section{
-    
-}
 
 .section-title, .section-subtitle{
   text-align: center;
